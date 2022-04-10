@@ -13,11 +13,15 @@ function App() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<UserPage />} />
+                    <Route exact path='/' element={<UserPage />} />
                     {/* <Route path='/home' element{<HomePage/>}/> */}
                 </Routes>
             </BrowserRouter>
         </>
+        // <div>
+        //     <p>fadsas</p>
+        //     <UserPage></UserPage>
+        // </div>
     );
 }
 
