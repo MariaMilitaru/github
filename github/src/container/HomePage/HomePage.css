@@ -1,0 +1,9 @@
+.git__home-page .search-field {
+    margin: 10px;
+}
+
+.git__home-page .user-link {
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}

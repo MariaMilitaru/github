@@ -6,22 +6,24 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { Link } from "react-router-dom";
 
-
-export default function ButtonAppBar() {
+export default function Navbar() {
     return (
         <Box sx={{ flexGrow: 2 }} >
             <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
                 <Toolbar >
-                    <IconButton
-                        size="inherit"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <GitHubIcon fontSize="large" />
-                    </IconButton>
+                    <Link to="/">
+                        <IconButton
+                            size="inherit"
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            sx={{ mr: 2 }}
+                        >
+                            <GitHubIcon fontSize="large" />
+                        </IconButton>
+                    </Link>
                     <Typography variant="h4" color="inherit" component="div">
                         Github
                     </Typography>
