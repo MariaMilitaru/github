@@ -10,6 +10,7 @@ export default function UserPage() {
   const [user, setUser] = useState();
   const [userRepo, setUserRepo] = useState();
   const [rooting, setRooting] = useState(false);
+  const [searchText,setSearchText] = useState('');
   let { id } = useParams();
   const userName = id;
 
@@ -29,8 +30,19 @@ export default function UserPage() {
     const userRepo = await axios.get(
       `https://api.github.com/users/${userName}/repos`
     );
-    console.log(userRepo.data);
     setUserRepo(userRepo.data);
+  }
+
+  const getFilteredRepos = () => {
+    return userRepo.filter((val) => {
+      const repoName = val.name.toLowerCase(); 
+      const searchInput = searchText.toLowerCase();
+      if( searchInput == '' || repoName.includes(searchInput)){
+        return true;
+      }else {
+        return false;
+      }
+    })
   }
 
   return (
@@ -42,7 +54,7 @@ export default function UserPage() {
           {rooting ? (
             <RepoRooting setRooting={setRooting} />
           ) : (
-            <UserRepo repo={userRepo} setRooting={setRooting} />
+            <UserRepo repo={getFilteredRepos()} setSearchText={setSearchText} setRooting={setRooting} />
           )}
         </div>
       )}

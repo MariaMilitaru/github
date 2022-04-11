@@ -2,13 +2,11 @@ import Repository from "./Repository";
 import TextField from "@mui/material/TextField";
 import "../styles/UserRepo.css";
 
-import { useState } from "react";
-
 const cardClick = (setRooting) => {
   setRooting(true);
 };
 
-export default function UserRepo({ repo, setRooting }) {
+export default function UserRepo({ repo, setSearchText, setRooting }) {
   return (
     <>
       <div className="test">
@@ -16,6 +14,7 @@ export default function UserRepo({ repo, setRooting }) {
           id="standard-basic"
           label="search repo.."
           variant="standard"
+          onChange={(ev) => setSearchText(ev.target.value)}
         />
         <div className="repos_container" onClick={() => cardClick(setRooting)}>
           {repo.map((repo) => (
