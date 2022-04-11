@@ -19,10 +19,6 @@ function App() {
                 </Routes>
             </BrowserRouter>
         </>
-        // <div>
-        //     <p>fadsas</p>
-        //     <UserPage></UserPage>
-        // </div>
     );
 }
 

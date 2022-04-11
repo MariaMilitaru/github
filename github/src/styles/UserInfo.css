@@ -3,14 +3,26 @@
     width:15%;
     height: 100%;
     padding:3rem;
-    margin-top:2rem;
+    margin-top:1rem;
 }
+.user_info_header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .profile_pic{
     width: 130px;
     height:130px;
     border-radius: 50%;
     
+    
 }
 .user_info_details{
    color: grey;
+}
+
+.user_info{
+    padding-left:10px;
 }

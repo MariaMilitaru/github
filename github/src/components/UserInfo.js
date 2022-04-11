@@ -6,27 +6,33 @@ import EventIcon from '@mui/icons-material/Event';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-export default function UserInfo() {
+
+
+export default function UserInfo({ user }) {
+    const dataCreated = (user.created_at).substring(0,10);
+    const dataUpdated = (user.updated_at).substring(0,10);
     return (
         <div className="user_container" >
-            <img src="https://avatars.githubusercontent.com/u/83230134?v=4" className="profile_pic" alt="profileimage"></img>
+            <div className="user_info_header">
+                <img src={user.avatar_url} className="profile_pic" alt="profileimage"></img>
+                <h3>{user.login}</h3>
+            </div>
             <div className="user_info_container" >
-                <h3>MariaMilitaru</h3>
                 <div className="user_info_details" >
                     <Grid container direction="row" alignItems="center">
-                        <PublicIcon fontSize="small"/>  <p> 10 PUBLIC REPOS </p>
+                        <PublicIcon fontSize="small" /> <p className="user_info"> {user.public_repos} PUBLIC REPOS </p>
                     </Grid>
                     <Grid container direction="row" alignItems="center">
-                        <EventIcon fontSize="small"/>  <p>CREATED AT 26.04.2021 </p>
+                        <EventIcon fontSize="small" />  <p className="user_info">CREATED AT {dataCreated} </p>
                     </Grid>
                     <Grid container direction="row" alignItems="center">
-                        <EventIcon fontSize="small"/>  <p>LAST UPDATE 29.03.2022  </p>
+                        <EventIcon fontSize="small" />  <p className="user_info">LAST UPDATE {dataUpdated}  </p>
                     </Grid>
                     <Grid container direction="row" alignItems="center">
-                        <PersonOutlineIcon fontSize="small"/>  <p> 0 Followers  </p>
+                        <PersonOutlineIcon fontSize="small" />  <p className="user_info"> {user.followers} Followers  </p>
                     </Grid>
                     <Grid container direction="row" alignItems="center">
-                        <FavoriteBorderIcon fontSize="small"/>  <p> 0 Following  </p>
+                        <FavoriteBorderIcon fontSize="small" />  <p className="user_info"> {user.following} Following  </p>
                     </Grid>
                 </div>
             </div>
