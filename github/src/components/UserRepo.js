@@ -1,6 +1,6 @@
-import UserRepoStyle from "../styles/UserRepoStyle.css";
 import Repository from "./Repository";
 import TextField from "@mui/material/TextField";
+import "../styles/UserRepo.css";
 
 export default function UserRepo({ repo }) {
   return (
@@ -11,9 +11,11 @@ export default function UserRepo({ repo }) {
           label="search repo.."
           variant="standard"
         />
+        <div className="repos_container">
         {repo.map((repo) => (
           <Repository key={repo.id} repo={repo}></Repository>
         ))}
+        </div>
       </div>
     </>
   );

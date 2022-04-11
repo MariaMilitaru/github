@@ -1,0 +1,15 @@
+.test{
+    border-left:1px solid grey;
+    margin-top:2rem;
+    margin-bottom:2rem;
+    padding-left:3rem;
+    width: 80%;
+    
+}
+.repos_container{
+    margin-top:1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
