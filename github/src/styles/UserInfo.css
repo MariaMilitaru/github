@@ -1,6 +1,5 @@
 .user_container{
-    border-right:1px solid grey;
-    width:15%;
+    width:16%;
     height: 100%;
     padding:3rem;
     margin-top:1rem;
@@ -16,8 +15,7 @@
     width: 130px;
     height:130px;
     border-radius: 50%;
-    
-    
+
 }
 .user_info_details{
    color: grey;
