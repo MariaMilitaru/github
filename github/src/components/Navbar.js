@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
+
 // import SearchIcon from '@mui/icons-material/Search';
 // import { styled, alpha } from '@mui/material/styles';
 // import InputBase from '@mui/material/InputBase';
@@ -62,9 +63,9 @@ export default function Navbar() {
                         <IconButton
                             size="inherit"
                             edge="start"
-                            color="inherit"
                             aria-label="menu"
                             sx={{ mr: 2 }}
+                            style={{color: 'white'}}
                         >
                             <GitHubIcon fontSize="large" />
                         </IconButton>
