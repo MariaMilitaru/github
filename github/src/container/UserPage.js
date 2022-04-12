@@ -10,7 +10,8 @@ export default function UserPage() {
   const [user, setUser] = useState();
   const [userRepo, setUserRepo] = useState();
   const [rooting, setRooting] = useState(false);
-  const [searchText,setSearchText] = useState('');
+  const [activeRepo, setActiveRepo] = useState();
+  const [searchText, setSearchText] = useState("");
   let { id } = useParams();
   const userName = id;
 
@@ -35,26 +36,35 @@ export default function UserPage() {
 
   const getFilteredRepos = () => {
     return userRepo.filter((val) => {
-      const repoName = val.name.toLowerCase(); 
+      const repoName = val.name.toLowerCase();
       const searchInput = searchText.toLowerCase();
-      if( searchInput == '' || repoName.includes(searchInput)){
+      if (searchInput == "" || repoName.includes(searchInput)) {
         return true;
-      }else {
+      } else {
         return false;
       }
-    })
-  }
+    });
+  };
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
       {user && userRepo && (
         <div style={{ display: "flex", flexDirection: "row" }}>
           <UserInfo user={user}></UserInfo>
           {rooting ? (
-            <RepoRooting setRooting={setRooting} />
+            <RepoRooting
+              setRooting={setRooting}
+              userName={userName}
+              activeRepo={activeRepo}
+            />
           ) : (
-            <UserRepo repo={getFilteredRepos()} setSearchText={setSearchText} setRooting={setRooting} />
+            <UserRepo
+              repo={getFilteredRepos()}
+              setSearchText={setSearchText}
+              setRooting={setRooting}
+              setActiveRepo={setActiveRepo}
+            />
           )}
         </div>
       )}
