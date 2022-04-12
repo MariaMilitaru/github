@@ -5,35 +5,31 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import UserRepo from "../components/UserRepo";
 import RepoRooting from "../components/RepoRooting";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProfileAction, fetchReposAction } from "../redux/slices/githubSlices";
+
 
 export default function UserPage() {
-  const [user, setUser] = useState();
-  const [userRepo, setUserRepo] = useState();
   const [rooting, setRooting] = useState(false);
   const [activeRepo, setActiveRepo] = useState();
   const [searchText, setSearchText] = useState("");
   let { id } = useParams();
   const userName = id;
 
+  const store = useSelector((state)=> state?.repos);
+  const {reposList, profile} = store;
+  const user = profile;
+  const userRepo = reposList;
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    fetchUser();
-    fetchRepos();
-  }, []);
+    dispatch(fetchProfileAction(userName));
+    dispatch(fetchReposAction(userName));
+  }, [dispatch]);
 
-  async function fetchUser() {
-    const userInfo = await axios.get(
-      `https://api.github.com/users/${userName}`
-    );
-    setUser(userInfo.data);
-  }
 
-  async function fetchRepos() {
-    const userRepo = await axios.get(
-      `https://api.github.com/users/${userName}/repos`
-    );
-    setUserRepo(userRepo.data);
-  }
 
+  
   const getFilteredRepos = () => {
     return userRepo.filter((val) => {
       const repoName = val.name.toLowerCase();
