@@ -5,12 +5,38 @@ import Box from "@mui/material/Box";
 import axios from "axios";
 import RootingComponent from "./RootingComponent";
 
+const displayLanguage = (repoLang) => {
+  let langArray = Object.keys(repoLang);
+
+  return (
+    <>
+      {langArray.map((lang) => (
+        <i
+          key={lang}
+          className={`programming lang-${lang.toLocaleLowerCase()}`}
+        ></i>
+      ))}
+    </>
+  );
+};
+
 export default function RepoRooting({ setRooting, userName, activeRepo }) {
   const [rootingFiles, setRootingFiles] = useState();
+  const [repoLang, setRepoLang] = useState();
 
   useEffect(() => {
     fetchingRooting();
+    fetchingLanguages();
+    repoLang && console.log(Object.keys(repoLang).length);
   }, []);
+
+  async function fetchingLanguages() {
+    const repoLanguages = await axios.get(
+      `https://api.github.com/repos/${userName}/${activeRepo}/languages`
+    );
+    setRepoLang(repoLanguages.data);
+    console.log(repoLanguages.data);
+  }
 
   async function fetchingRooting() {
     const rootingFiles = await axios.get(
@@ -23,6 +49,7 @@ export default function RepoRooting({ setRooting, userName, activeRepo }) {
   return (
     <>
       <div className="repo-card">
+        {repoLang && displayLanguage(repoLang)}
         <CloseIcon
           onClick={() => setRooting(false)}
           className="xBTN"

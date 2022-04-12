@@ -2,5 +2,7 @@
     width: 100%;
     background-color: rgb(255, 255, 255);
     height: 10%;
-    margin: 1px solid black;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
 }
