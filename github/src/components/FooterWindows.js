@@ -8,6 +8,21 @@ import LocalPostOfficeIcon from "@mui/icons-material/LocalPostOffice";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import ScreenSearchDesktopIcon from "@mui/icons-material/ScreenSearchDesktop";
 
+const displayLanguage = (repoLang) => {
+  let langArray = Object.keys(repoLang);
+
+  return (
+    <div className="display_lang_icns">
+      {langArray.map((lang) => (
+        <i
+          key={lang}
+          className={`programming lang-${lang.toLocaleLowerCase()}`}
+        ></i>
+      ))}
+    </div>
+  );
+};
+
 const get_time = (setValue, value) => {};
 
 const get_data = () => {
@@ -23,7 +38,7 @@ const get_data = () => {
   return display_date;
 };
 
-export default function FooterWindows() {
+export default function FooterWindows({ repoLang }) {
   const [value, setValue] = useState(new Date());
   return (
     <>
@@ -51,6 +66,8 @@ export default function FooterWindows() {
             }}
           />
         </div>
+        <div className="middle_footer"></div>
+
         <div class="right_footer_icns">
           <KeyboardArrowUpIcon
             sx={{
@@ -67,6 +84,7 @@ export default function FooterWindows() {
               marginRight: 4,
             }}
           />
+          {repoLang && displayLanguage(repoLang)}
           <div
             className="data_and_time"
             style={{
@@ -77,12 +95,14 @@ export default function FooterWindows() {
             <div
               style={{
                 color: "#FEFEFE",
-                marginLeft: 3,
+                marginLeft: 5,
+                marginBottom: 1,
               }}
             >
               {get_data()}
             </div>
           </div>
+
           <NotificationsActiveIcon
             sx={{
               fontSize: 40,

@@ -10,6 +10,9 @@
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
+    overflow: auto;
+    /* max-height: 80vh; */
+    /* overflow-wrap: anywhere; */
 }
 
 .xBTN{
@@ -28,13 +31,18 @@
 
 .display_lang_icns{
     margin-left: 2%;
-
+    justify-content: space-around;
     display: flex;
+    background-color: red;
+    width: auto;
     
 }
 
 .programming{
     margin-left: 1%;
+    align-self: center;
+    /* margin-left: 2% !important;  */
+    /* margin-right: 2% !important;  */
 }
 
 .rooting_file_name{

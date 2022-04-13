@@ -6,9 +6,17 @@
     border-bottom-right-radius: 2rem;
     display: flex;
     justify-content: space-between;
+    /* position: fixed; */
+    /* align-items: center; */
     /* z-index: 1; */
 }
 
 .right_footer_icns{
     display: flex;
+}
+
+.data_and_time{
+    /* background-color: red; */
+    width: 100px;
+    
 }

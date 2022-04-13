@@ -6,21 +6,6 @@ import axios from "axios";
 import RootingComponent from "./RootingComponent";
 import FooterWindows from "./FooterWindows";
 
-const displayLanguage = (repoLang) => {
-  let langArray = Object.keys(repoLang);
-
-  return (
-    <div className="display_lang_icns">
-      {langArray.map((lang) => (
-        <i
-          key={lang}
-          className={`programming lang-${lang.toLocaleLowerCase()}`}
-        ></i>
-      ))}
-    </div>
-  );
-};
-
 export default function RepoRooting({ setRooting, userName, activeRepo }) {
   const [rootingFiles, setRootingFiles] = useState();
   const [repoLang, setRepoLang] = useState();
@@ -72,7 +57,7 @@ export default function RepoRooting({ setRooting, userName, activeRepo }) {
             borderBottomLeftRadius: 15,
           }}
         />
-        {repoLang && displayLanguage(repoLang)}
+
         <Box
           sx={{
             // background: "#F5F5F5",
@@ -85,7 +70,7 @@ export default function RepoRooting({ setRooting, userName, activeRepo }) {
           {rootingFiles &&
             rootingFiles.tree.map((file) => <RootingComponent file={file} />)}
         </Box>
-        <FooterWindows />
+        <FooterWindows repoLang={repoLang} />
       </div>
     </>
   );

@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import UserInfo from "../components/UserInfo";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
+
 import UserRepo from "../components/UserRepo";
 import RepoRooting from "../components/RepoRooting";
 import { useDispatch, useSelector } from "react-redux";
