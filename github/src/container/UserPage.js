@@ -3,11 +3,14 @@ import Navbar from "../components/Navbar";
 import UserInfo from "../components/UserInfo";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import UserRepo from "../components/UserRepo";
 import RepoRooting from "../components/RepoRooting";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProfileAction, fetchReposAction } from "../redux/slices/githubSlices";
-
+import {
+  fetchProfileAction,
+  fetchReposAction,
+} from "../redux/slices/githubSlices";
 
 export default function UserPage() {
   const [rooting, setRooting] = useState(false);
@@ -16,8 +19,8 @@ export default function UserPage() {
   let { id } = useParams();
   const userName = id;
 
-  const store = useSelector((state)=> state?.repos);
-  const {reposList, profile} = store;
+  const store = useSelector((state) => state?.repos);
+  const { reposList, profile } = store;
   const user = profile;
   const userRepo = reposList;
   const dispatch = useDispatch();
@@ -27,9 +30,6 @@ export default function UserPage() {
     dispatch(fetchReposAction(userName));
   }, [dispatch]);
 
-
-
-  
   const getFilteredRepos = () => {
     return userRepo.filter((val) => {
       const repoName = val.name.toLowerCase();
@@ -60,6 +60,7 @@ export default function UserPage() {
               setSearchText={setSearchText}
               setRooting={setRooting}
               setActiveRepo={setActiveRepo}
+              appear
             />
           )}
         </div>

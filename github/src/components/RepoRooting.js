@@ -4,19 +4,20 @@ import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
 import axios from "axios";
 import RootingComponent from "./RootingComponent";
+import FooterWindows from "./FooterWindows";
 
 const displayLanguage = (repoLang) => {
   let langArray = Object.keys(repoLang);
 
   return (
-    <>
+    <div className="display_lang_icns">
       {langArray.map((lang) => (
         <i
           key={lang}
           className={`programming lang-${lang.toLocaleLowerCase()}`}
         ></i>
       ))}
-    </>
+    </div>
   );
 };
 
@@ -39,8 +40,14 @@ export default function RepoRooting({ setRooting, userName, activeRepo }) {
   }
 
   async function fetchingRooting() {
+    let get_default_branch = await axios.get(
+      `https://api.github.com/repos/${userName}/${activeRepo}`
+    );
+    const get_branch = get_default_branch.data.default_branch;
+    console.log(get_branch);
+
     const rootingFiles = await axios.get(
-      `https://api.github.com/repos/${userName}/${activeRepo}/git/trees/master`
+      `https://api.github.com/repos/${userName}/${activeRepo}/git/trees/${get_branch}`
     );
     setRootingFiles(rootingFiles.data);
     console.log(rootingFiles.data);
@@ -49,7 +56,6 @@ export default function RepoRooting({ setRooting, userName, activeRepo }) {
   return (
     <>
       <div className="repo-card">
-        {repoLang && displayLanguage(repoLang)}
         <CloseIcon
           onClick={() => setRooting(false)}
           className="xBTN"
@@ -63,11 +69,13 @@ export default function RepoRooting({ setRooting, userName, activeRepo }) {
             paddingBottom: 0.4,
             alignSelf: "flex-end",
             borderTopRightRadius: 15,
+            borderBottomLeftRadius: 15,
           }}
         />
+        {repoLang && displayLanguage(repoLang)}
         <Box
           sx={{
-            background: "#F5F5F5",
+            // background: "#F5F5F5",
             marginLeft: 3,
             marginRight: 3,
             marginTop: 4,
@@ -77,6 +85,7 @@ export default function RepoRooting({ setRooting, userName, activeRepo }) {
           {rootingFiles &&
             rootingFiles.tree.map((file) => <RootingComponent file={file} />)}
         </Box>
+        <FooterWindows />
       </div>
     </>
   );
