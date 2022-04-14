@@ -8,7 +8,8 @@
 .git__home-page .MuiList-root {
     position: relative;
     left: 50%; 
-    margin-left: -200px
+    margin-left: -200px;
+    width: fit-content;
 }
 
 .git__home-page .user-link {
