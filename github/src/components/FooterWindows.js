@@ -50,7 +50,7 @@ export default function FooterWindows({ repoLang, userName, activeRepo }) {
 
   return (
     <>
-      {/* {() => fetchingRepo()} */}
+      {() => fetchingRepo()}
       <div className="windows-footer">
         <div className="left_footer_icns">
           <GitHubIcon
