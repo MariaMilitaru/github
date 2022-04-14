@@ -5,13 +5,9 @@ import Box from "@mui/material/Box";
 import axios from "axios";
 import RootingComponent from "./RootingComponent";
 import FooterWindows from "./FooterWindows";
-import useLocalStorage from "../localStorage/useLocalStorage";
 
 export default function RepoRooting({ setRooting, userName, activeRepo }) {
-  const [rootingFiles, setRootingFiles] = useLocalStorage(
-    "Rooting-Files",
-    null
-  );
+  const [rootingFiles, setRootingFiles] = useState();
   const [repoLang, setRepoLang] = useState();
 
   useEffect(() => {
