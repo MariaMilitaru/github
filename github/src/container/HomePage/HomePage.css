@@ -1,5 +1,15 @@
 .git__home-page .search-field {
-    margin: 10px;
+    margin: 30px;
+    position: relative;
+    left: 50%; 
+    margin-left: -200px
+}
+
+.git__home-page .MuiList-root {
+    position: relative;
+    left: 50%; 
+    margin-left: -200px;
+    width: fit-content;
 }
 
 .git__home-page .user-link {
