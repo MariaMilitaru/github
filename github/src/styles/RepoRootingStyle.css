@@ -10,7 +10,7 @@
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    /* overflow: auto; */
     /* max-height: 80vh; */
     /* overflow-wrap: anywhere; */
 }
@@ -33,7 +33,7 @@
     margin-left: 2%;
     justify-content: space-around;
     display: flex;
-    background-color: red;
+    /* background-color: red; */
     width: auto;
     
 }
@@ -41,8 +41,9 @@
 .programming{
     margin-left: 1%;
     align-self: center;
-    /* margin-left: 2% !important;  */
-    /* margin-right: 2% !important;  */
+    /* margin-left: 20px ; / */
+    margin-right: 20px;
+    filter: grayscale(100%); 
 }
 
 .rooting_file_name{
