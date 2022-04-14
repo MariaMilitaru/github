@@ -11,9 +11,10 @@ import {
   fetchProfileAction,
   fetchReposAction,
 } from "../redux/slices/githubSlices";
+import useLocalStorage from "../localStorage/useLocalStorage";
 
 export default function UserPage() {
-  const [rooting, setRooting] = useState(false);
+  const [rooting, setRooting] = useLocalStorage("Active-Rooting");
   const [activeRepo, setActiveRepo] = useState();
   const [searchText, setSearchText] = useState("");
   let { id } = useParams();
