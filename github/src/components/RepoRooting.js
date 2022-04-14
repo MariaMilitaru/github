@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import axios from "axios";
 import RootingComponent from "./RootingComponent";
 import FooterWindows from "./FooterWindows";
+import { Hidden } from "@mui/material";
 
 export default function RepoRooting({ setRooting, userName, activeRepo }) {
   const [rootingFiles, setRootingFiles] = useState();
@@ -61,16 +62,25 @@ export default function RepoRooting({ setRooting, userName, activeRepo }) {
         <Box
           sx={{
             // background: "#F5F5F5",
-            marginLeft: 3,
+            marginLeft: 2,
             marginRight: 3,
-            marginTop: 4,
+            marginTop: 0.2,
             height: 1,
+            // background: "red",
+            overflowWrap: " break-word",
+            overflow: "hidden",
+            // maxWidth: 1,
+            // width: 200,
           }}
         >
           {rootingFiles &&
             rootingFiles.tree.map((file) => <RootingComponent file={file} />)}
         </Box>
-        <FooterWindows repoLang={repoLang} />
+        <FooterWindows
+          repoLang={repoLang}
+          userName={userName}
+          activeRepo={activeRepo}
+        />
       </div>
     </>
   );

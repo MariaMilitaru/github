@@ -45,6 +45,7 @@ export default function UserPage() {
   return (
     <>
       <Navbar />
+
       {user && userRepo && (
         <div style={{ display: "flex", flexDirection: "row" }}>
           <UserInfo user={user}></UserInfo>

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FooterWin from "../styles/FooterWin.css";
 import Clock from "react-digital-clock";
+import axios from "axios";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -23,8 +24,6 @@ const displayLanguage = (repoLang) => {
   );
 };
 
-const get_time = (setValue, value) => {};
-
 const get_data = () => {
   const date = new Date();
   let day = date.getDate();
@@ -38,10 +37,20 @@ const get_data = () => {
   return display_date;
 };
 
-export default function FooterWindows({ repoLang }) {
-  const [value, setValue] = useState(new Date());
+export default function FooterWindows({ repoLang, userName, activeRepo }) {
+  const [repoToDisplay, setRepoToDisplay] = useState();
+
+  async function fetchingRepo() {
+    const active_repo = await axios.get(
+      `https://api.github.com/repos/${userName}/${activeRepo}`
+    );
+    setRepoToDisplay(active_repo.data);
+    console.log(JSON.stringify(active_repo.data));
+  }
+
   return (
     <>
+      {() => fetchingRepo()}
       <div class="windows-footer">
         <div className="left_footer_icns">
           <GitHubIcon
@@ -95,7 +104,7 @@ export default function FooterWindows({ repoLang }) {
             <div
               style={{
                 color: "#FEFEFE",
-                marginLeft: 5,
+                marginLeft: 16,
                 marginBottom: 1,
               }}
             >
