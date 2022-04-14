@@ -51,7 +51,7 @@ export default function FooterWindows({ repoLang, userName, activeRepo }) {
   return (
     <>
       {() => fetchingRepo()}
-      <div class="windows-footer">
+      <div className="windows-footer">
         <div className="left_footer_icns">
           <GitHubIcon
             sx={{
@@ -77,7 +77,7 @@ export default function FooterWindows({ repoLang, userName, activeRepo }) {
         </div>
         <div className="middle_footer"></div>
 
-        <div class="right_footer_icns">
+        <div className="right_footer_icns">
           <KeyboardArrowUpIcon
             sx={{
               fontSize: 40,

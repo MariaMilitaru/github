@@ -14,8 +14,8 @@ import {
 import useLocalStorage from "../localStorage/useLocalStorage";
 
 export default function UserPage() {
-  const [rooting, setRooting] = useState();
-  const [activeRepo, setActiveRepo] = useState();
+  const [rooting, setRooting] = useLocalStorage("Showing-Repo-Data-");
+  const [activeRepo, setActiveRepo] = useLocalStorage("Active-Repo");
   const [searchText, setSearchText] = useState("");
   let { id } = useParams();
   const userName = id;

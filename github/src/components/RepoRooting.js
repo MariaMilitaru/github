@@ -73,7 +73,9 @@ export default function RepoRooting({ setRooting, userName, activeRepo }) {
           }}
         >
           {rootingFiles &&
-            rootingFiles.tree.map((file) => <RootingComponent file={file} />)}
+            rootingFiles.tree.map((file) => (
+              <RootingComponent file={file} key={file.sha} />
+            ))}
         </Box>
         <FooterWindows
           repoLang={repoLang}
