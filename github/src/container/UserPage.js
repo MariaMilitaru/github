@@ -14,7 +14,7 @@ import {
 import useLocalStorage from "../localStorage/useLocalStorage";
 
 export default function UserPage() {
-  const [rooting, setRooting] = useLocalStorage("Active-Rooting");
+  const [rooting, setRooting] = useState();
   const [activeRepo, setActiveRepo] = useState();
   const [searchText, setSearchText] = useState("");
   let { id } = useParams();

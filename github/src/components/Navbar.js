@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
+
 // import SearchIcon from '@mui/icons-material/Search';
 // import { styled, alpha } from '@mui/material/styles';
 // import InputBase from '@mui/material/InputBase';
@@ -56,7 +57,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <Box sx={{ flexGrow: 2 }}>
+    <Box sx={{ flexGrow: 2 }}  data-testid="navbar-test">
       <AppBar position="static" sx={{ bgcolor: "#161B22" }}>
         <Toolbar>
           <Link to="/">
@@ -87,9 +88,11 @@ export default function Navbar() {
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search> */}
-          <Button color="inherit" style={{ fontSize: "23px" }}>
-            Search{" "}
-          </Button>
+          <Link to="/" style={{textDecoration: "none"}} >
+            <Button color="inherit" style={{ fontSize: "23px", color: "white"}}>
+              Search{" "}
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </Box>
