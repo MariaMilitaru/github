@@ -56,7 +56,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
     return (
-        <Box sx={{ flexGrow: 2 }} >
+        <Box sx={{ flexGrow: 2 }} data-testid="navbar-1" >
             <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
                 <Toolbar >
                     <Link to="/">

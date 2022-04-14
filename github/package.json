@@ -9,7 +9,6 @@
     "@mui/material": "^5.6.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "programming-languages-logos": "^0.0.3",
@@ -43,5 +42,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^12.1.5",
+    "react-test-renderer": "^18.0.0"
   }
 }
