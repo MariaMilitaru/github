@@ -10,7 +10,7 @@ export default function UserRepo({
 }) {
   return (
     <>
-      <div className="test">
+      <div className="test" data-testid="userrepo-test">
         <TextField
           id="standard-basic"
           label="search repo.."

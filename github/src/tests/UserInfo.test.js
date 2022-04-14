@@ -22,4 +22,5 @@ test('should render UserInfo component', () => {
     const userInfoElement = screen.getByTestId('userinfo-test');
     expect(userInfoElement).toBeInTheDocument();
     expect(userInfoElement).toHaveTextContent("webdevsimplified");
+    
 })
