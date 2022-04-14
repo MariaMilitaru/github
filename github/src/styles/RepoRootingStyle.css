@@ -1,11 +1,19 @@
 .repo-card{
-    background-color: aliceblue;
+    background-image: url('https://i.imgur.com/itntZgM.png');
+    /* background-position: right; */
+    cursor: url("https://i.imgur.com/tiho2Td.png"), auto;
+
     width: 80%;
+    height: 80vh;
     margin-right: 3%;
     margin-top: 3%;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
+    /* overflow: auto; */
+    /* max-height: 80vh; */
+    /* overflow-wrap: anywhere; */
+   
 }
 
 .xBTN{
@@ -20,4 +28,25 @@
     width: 100%;
     height: 100%;
     background-color: azure;
+}
+
+.display_lang_icns{
+    margin-left: 2%;
+    justify-content: space-around;
+    display: flex;
+    /* background-color: red; */
+    width: auto;
+    
+}
+
+.programming{
+    margin-left: 1%;
+    align-self: center;
+    /* margin-left: 20px ; / */
+    margin-right: 20px;
+    filter: grayscale(100%); 
+}
+
+.rooting_file_name{
+    margin-left: 0.5%;
 }

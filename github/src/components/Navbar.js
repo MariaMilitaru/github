@@ -1,11 +1,12 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import GitHubIcon from "@mui/icons-material/GitHub";
+
 // import SearchIcon from '@mui/icons-material/Search';
 // import { styled, alpha } from '@mui/material/styles';
 // import InputBase from '@mui/material/InputBase';
@@ -24,7 +25,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 //       width: 'auto',
 //     },
 //   }));
-  
+
 //   const SearchIconWrapper = styled('div')(({ theme }) => ({
 //     padding: theme.spacing(0, 2),
 //     height: '100%',
@@ -34,7 +35,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 //     alignItems: 'center',
 //     justifyContent: 'center',
 //   }));
-  
+
 //   const StyledInputBase = styled(InputBase)(({ theme }) => ({
 //     color: 'inherit',
 //     '& .MuiInputBase-input': {
@@ -54,27 +55,30 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-    return (
-        <Box sx={{ flexGrow: 2 }} >
-            <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
-                <Toolbar >
-                    <Link to="/">
-                        <IconButton
-                            size="inherit"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ mr: 2 }}
-                        >
-                            <GitHubIcon fontSize="large" />
-                        </IconButton>
-                    </Link>
-                    <Typography variant="h4" color="inherit" component="div">
-                        Github
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                    </Typography>
-                    {/* <Search>
+  return (
+    <Box sx={{ flexGrow: 2 }} data-testid="navbar-test">
+      <AppBar position="static" sx={{ bgcolor: "#161B22" }}>
+        <Toolbar>
+          <Link to="/">
+            <IconButton
+              size="inherit"
+              edge="start"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              style={{ color: "white" }}
+            >
+              <GitHubIcon fontSize="large" />
+            </IconButton>
+          </Link>
+          <Typography variant="h4" color="inherit" component="div">
+            Github
+          </Typography>
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{ flexGrow: 1 }}
+          ></Typography>
+          {/* <Search>
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
@@ -83,9 +87,13 @@ export default function Navbar() {
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search> */}
-                    <Button color="inherit" style={{ fontSize: '23px' }}>Search </Button>
-                </Toolbar>
-            </AppBar>
-        </Box>
-    );
+          <Link to="/" style={{textDecoration:"none"}}>
+            <Button color="inherit" style={{ fontSize: "23px", color:"white" }}>
+              Search{" "}
+            </Button>
+          </Link>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }
