@@ -12,7 +12,7 @@ export default function UserInfo({ user }) {
     const dataCreated = (user.created_at).substring(0,10);
     const dataUpdated = (user.updated_at).substring(0,10);
     return (
-        <div className="user_container" >
+        <div className="user_container" data-testid="userinfo-test" >
             <div className="user_info_header">
                 <img src={user.avatar_url} className="profile_pic" alt="profileimage"></img>
                 <h3>{user.login}</h3>

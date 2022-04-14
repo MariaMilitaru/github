@@ -16,6 +16,7 @@ export default function UserRepo({
           label="search repo.."
           variant="standard"
           onChange={(ev) => setSearchText(ev.target.value)}
+          style={{width:"20%", marginBottom: "20px"}}
         />
         <div className="repos_container">
           {repo.map((repo) => (

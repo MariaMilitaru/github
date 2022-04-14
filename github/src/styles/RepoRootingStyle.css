@@ -1,6 +1,6 @@
 .repo-card{
     background-image: url('https://i.imgur.com/itntZgM.png');
-    background-position: right;
+    /* background-position: right; */
     cursor: url("https://i.imgur.com/tiho2Td.png"), auto;
 
     width: 80%;
@@ -13,6 +13,7 @@
     /* overflow: auto; */
     /* max-height: 80vh; */
     /* overflow-wrap: anywhere; */
+   
 }
 
 .xBTN{
