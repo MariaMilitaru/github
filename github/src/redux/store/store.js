@@ -5,10 +5,7 @@ const store = configureStore({
   reducer: {
     repos: reposReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+ 
 });
 
 export default store;
