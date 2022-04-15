@@ -6,12 +6,16 @@ import {
     List,
     ListItem,
     ListItemText,
-    ListItemButton
+    ListItemButton,
+    ListItemAvatar,
+    Avatar
 } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import "./HomePage.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ImageIcon from '@mui/icons-material/Image';
+
 /**{
     "login": "john",
     "id": 1668,
@@ -75,13 +79,18 @@ export default function HomePage() {
             <List>
                 {users.map((user) => {
                     return (
-                        <ListItem disablePadding>
+                        <ListItem key= {user.id} disablePadding sx={{ width: '100%', maxWidth: 400, bgcolor: 'background.paper' }}>
                             <Link
                                 to={`/user/${user.login}`}
                                 className="user-link"
                             >
                                 <ListItemButton>
-                                    <ListItemText primary={user.login} />
+                                        <ListItemAvatar>
+                                            <Avatar>
+                                                     <Avatar alt="UserImg" src={user.avatar_url} />   
+                                            </Avatar>
+                                        </ListItemAvatar>
+                                        <ListItemText primary={user.login} />
                                 </ListItemButton>
                             </Link>
                         </ListItem>
